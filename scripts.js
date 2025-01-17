@@ -20,6 +20,13 @@ function fullTotal(products) {
 
 // Added .toFixed(2) to the total to get the output to be formatted like money
 
+// Function to deactivate the button after it is clicked
+function deactivateButton(button) {
+  button.disabled = true;
+  button.style.backgroundColor = "gray";
+  button.style.color = "white";
+}
+
 // Function to render the products into a table
 function renderProducts(products) {
   let tableBody = document.getElementById("table-body");
@@ -60,4 +67,8 @@ showTotal.addEventListener("click", function () {
   let total = fullTotal(products);
   let totalElement = document.getElementById("total");
   totalElement.innerText = total;
+});
+
+showCart.addEventListener("click", function () {
+  deactivateButton(showCart);
 });
