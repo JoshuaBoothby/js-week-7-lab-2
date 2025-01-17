@@ -17,10 +17,10 @@ function fullTotal(products) {
   }
   return total.toFixed(2);
 }
-console.log(fullTotal(products));
+
 // Added .toFixed(2) to the total to get the output to be formatted like money
 
-// Function to render the products in the table
+// Function to render the products into a table
 function renderProducts(products) {
   let tableBody = document.getElementById("table-body");
   for (let i = 0; i < products.length; i++) {
@@ -47,4 +47,17 @@ function renderProducts(products) {
     tableBody.appendChild(tr);
   }
 }
-renderProducts(products);
+
+// Event listener to render the products on Button Click
+let showCart = document.getElementById("showCart");
+showCart.addEventListener("click", function () {
+  renderProducts(products);
+});
+
+// Event listener to render the total invoice amount on Button Click
+let showTotal = document.getElementById("showTotal");
+showTotal.addEventListener("click", function () {
+  let total = fullTotal(products);
+  let totalElement = document.getElementById("total");
+  totalElement.innerText = total;
+});
