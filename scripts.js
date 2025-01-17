@@ -30,6 +30,7 @@ function deactivateButton(button) {
 // Function to render the products into a table
 function renderProducts(products) {
   let tableBody = document.getElementById("table-body");
+  tableBody.innerHTML = "";
   for (let i = 0; i < products.length; i++) {
     let product = products[i];
 
